@@ -1,0 +1,317 @@
+/* By making a seperate css file, I can access these most used basic utility tools very easily (Make sure this is linked with the 
+html file)             */
+
+
+/* Global scrollbar styling for dark websites (No need to create any seperate class for this, not even *{}....It will be available 
+                                         throughout the webpage) - Chatgpt Content */
+
+/* For WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #2c2c2c; /* Dark background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555; /* Darker color for the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Lighter color when hovering over the thumb */
+}
+
+
+.border{                        
+    border: 2px solid red;      /* This red color is like for analysing before actual sketching (access this whenever needed
+                                                  & discard once the work is done)   */
+    margin: 3px;
+}
+
+.flex{
+    display: flex;
+}
+
+.justify-center{                        /* Horizontally centered  */
+    justify-content: center;
+}
+
+.items-center{                          /* Vertically centered  */
+    align-items: center;
+}
+
+
+
+
+
+
+/* NOTE: THIS GAP ONLY WORKS ALONG-WITH OTHER CLASSES LIKE "flex" & "items-center" (IDK WHY)   */ 
+.gap{
+    gap:17px;    /* Space between the icon and text */ 
+}
+
+
+
+
+
+
+.m1{                         /* Margin 1 --> COZ WITHOUT MARGIN, BORDER WILL NOT BE VISISBLE....!!!! */
+    margin: 4px;
+}
+
+.p1{
+    padding: 10px;        /* This is to seperate the contents (gap) from the border(Guess work) */
+}
+
+.align-end{
+    align-items: end;
+}
+
+.p-left{
+    padding-left: 115px;
+}
+
+.p-right-play-now-text{
+    padding-right: 25px;
+    font-size: large;
+}
+
+.p-right-play-now-icon{
+    padding-right: 15px;
+    font-size: x-large;
+}
+
+.musicalborder{
+  width:340px;
+  height:112px;
+  margin-top: 30px;
+  border: 1.6px solid white;
+}
+
+.musicalborder:hover{
+    font-size: large;
+}
+
+span{
+    width:78px;  /* Since "Play Now" was displaying on 2 diff lines, uska div(box) width increase kar diya so that it gets enough
+    space to appear in 1 same line   */
+    
+}
+
+.Library{
+    font-size: x-large;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.card-container{
+    
+    padding-top: 15px;
+    display:flex;     /* Means flex-box will go in horizonal (it simply means that cards will be displayed horiontally)  */
+    gap: 20px;         /* Gap between each card  */
+    flex-wrap: wrap;  /* Wraps cards to the next row if there's no space */
+}
+
+.greyish-border{                 /* Let's access this for cards in html file  */
+    border:10px solid #252525;
+    margin: 1px;
+    background-color: #252525;
+}
+
+.greyish-border:hover{
+    border: 2px solid white;
+}
+
+.card{
+    display: flex;
+    flex-direction: column; /* Stack items vertically within each card */
+
+/*                                           VERY IMPORTANT            
+
+
+HERE, WE HAD TO KEEP flex-direction:column TO STACK THE ITEMS VERTICALLY COZ ISKE BINA THE TEXTS WILL APPEAR BESIDES (HORIZONTAL) TO
+THE CARD COZ OF "display:flex" IN PARENT DIV CLASS (card-container) 
+
+WE CAN'T REMOVE "display:flex" from parent div since all cards will be arranged one below the other which we don't want...We want
+all cards to be displayed besides one another 
+
+SO THE ONLY OPTION IS TO USE THIS flex-direction: column in child div class 
+
+//                                            POINT TO BE NOTED       
+
+1) When flex-direction: row (by default) ---> No need to mention, this is default
+
+align-items:center;  -->    VERTICALLY centers the elements
+justify-content:center; ---> HORIONTALLY centers the elements
+
+                                                 BUT
+
+2) When flex-direction: column;                          (Vice-versa case)
+
+align-items:center;  -->     HORIONTALLY centers the elements
+justify-content:center; ---> VERTICALLY centers the elements                                                                  */
+
+
+
+    align-items: center; /* Center contents HORIONTALLY                (Expln is just above)    */
+    width: 200px; /* Ensures each card is uniformly sized */
+}
+
+.card-logo1{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card1.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+/* NOW JUST REPEAT BY CREATING NEW CLASSES LIKE card-logo2 & 3 & SO ON & UPDATING THE BG-IMG URL DEPENDING ON HOW MUCH CARDS 
+                                                        YOU NEED....!!!!!!!!    */
+
+
+/*                    MENTION THE FORMAT CORRECTLY LIKE .jpeg or .jpg WHILE SETTING UP THE background-image      */
+
+.card-logo2{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card2.jpg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+.card-logo3{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card3.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+.card-logo4{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card4.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+
+.card-logo5{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card5.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+.card-logo6{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card6.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+
+.card-logo7{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card7.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+
+
+.card-logo8{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card8.jpg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+.card-logo9{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card9.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+
+.card-logo10{  
+    position: relative; /* To position the play button (below class) absolutely within this container */                
+
+    background-image: url("Card10.jpeg");          /* background-image & background-size are together necessary for proper alignment  */
+    background-size:contain;                      
+    width: 200px;                        /* height & width are together necessary for display of img */
+    height:200px;
+}
+
+
+
+
+/*This below content has been taken with the help of Chat-gpt (NOT-FULLY TRUSTABLE)(You can do it sometimes but you should understand it) */
+
+.play-button {
+    position: absolute;
+/* This is the change which I made to place the button in its correct place (Guess work)  */
+    right: 0%;      /* In opp attributes, one needs to be in % and the other in px   */
+    left: 160px;
+    top:168px;
+    bottom: -70px; /* **Changed**: Initially place the button below the card */
+/* End  */
+
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    width: 60px; /* Size of the play button */
+    height: 60px; /* Size of the play button */
+    background-color: #1db954; /* Spotify green */
+    border-radius: 50%; /* Makes the button round */
+    display: flex;
+    justify-content: center; /* Center the play icon horizontally */
+    align-items: center; /* Center the play icon vertically */
+    opacity: 0; /* Initially hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds shadow for depth */
+    cursor: pointer; /* Makes the button look clickable */
+    transition: opacity 0.3s, transform 0.3s; /* **Added**: Smooth transition for opacity and movement */
+    transform: translateY(20px); /* **Added**: Initial downward offset */
+}
+
+.card:hover .play-button {
+    opacity: 1; /* **Changed**: Make the button visible */
+    transform: translateY(0); /* **Changed**: Move the button to its actual place */
+}
+
+.play-button i {
+    color: black; /* Solid black color for the play icon */
+    font-size: 24px; /* Size of the play icon */
+}
+
+/* END of Chat-gpt CONTENT   */
+
+.card-text{
+    text-align: center; /* Center text within the card */
+    width: 100%; /* Ensures text takes the full card width */
+}
+
+

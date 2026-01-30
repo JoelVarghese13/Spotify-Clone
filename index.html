@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+<body>
+    <div class="container flex"> 
+                                   <!-- flex & border are accessed from utility css file -->
+<div class="left">
+
+<div class="home bg-grey rounded m1 p1">
+
+
+    <div class="logo">
+        <i class="fa-brands fa-spotify"></i>
+        <b>Spotify</b>
+    </div>
+
+    <div class ="house-search">
+    
+<div class="house-text flex items-center gap">      <!-- "House" & "search" will be displayed on next line each and they will look like list of items-->
+    <i class="fa-solid fa-house"></i>    <!-- WE WON'T USE <li> TAG SINCE WE DON'T NEED BULLETS TO APPEAR -->
+ Home         </div>
+
+
+<div class = "search-text flex items-center gap">
+    <i class="fa-solid fa-magnifying-glass"></i>  <!-- Extracted from Font-awesome Website but u have to require it's cdn first--> 
+Search  </div>
+
+</div> <!-- Closing tag of class "house-search"-->
+</div> <!-- Closing tag of class "home bg-grey rounded m1 p1" -->
+
+
+
+
+<div class="library bg-grey rounded m1 p1">
+
+    
+
+
+<div class = "Library gap flex items-center">
+   <i class="fa-solid fa-flag"></i>
+   Your Library 
+
+
+    <div class="plus p-left"> <!-- class "p-left" moves the icon plus 1155px away from the text-content towards right-->
+    <i class="fa-regular fa-plus"></i> </div>
+
+    
+
+</div> <!-- Closing tag of class="Library gap flex items-center"-->
+
+<div class = "play-music musicalborder m1 items-center gap flex">  <!-- I REPEAT AGAIN, MARGIN IS NEEDED FOR BORDER & -->
+
+
+    <i class="fa-solid fa-music"></i>
+    Decimate- <br>
+    Jeremy Blake <br>
+    -Copy. <br>
+    mp3 <br>
+    Joel Varghese <br>
+
+   <div class="p-right-play-now-text flex">
+    <span>Play Now</span> </div>
+
+    <div class="p-right-play-now-icon">
+        <i class="fa-solid fa-play"></i>  </div>
+
+
+</div>       <!-- Closing tag of class "play-music musicalborder m1 items-center gap flex"-->
+
+
+
+<!-- NOW REPEAT THIS WHOLE DIV (play-music) 4 TIMES BELOW  -->
+
+
+
+
+
+<div class = "play-music musicalborder m1 items-center gap flex">  <!-- I REPEAT AGAIN, MARGIN IS NEEDED FOR BORDER & -->
+
+
+    <i class="fa-solid fa-music"></i>
+    Decimate- <br>
+    Jeremy Blake <br>
+    -Copy. <br>
+    mp3 <br>
+    Joel Varghese <br>
+
+   <div class="p-right-play-now-text flex">
+    <span>Play Now</span> </div>
+
+    <div class="p-right-play-now-icon">
+        <i class="fa-solid fa-play"></i>  </div>
+
+
+</div>       <!-- Closing tag of class "play-music musicalborder m1 items-center gap flex"-->
+
+
+
+<div class = "play-music musicalborder m1 items-center gap flex">  <!-- I REPEAT AGAIN, MARGIN IS NEEDED FOR BORDER & -->
+
+
+    <i class="fa-solid fa-music"></i>
+    Final Girl- <br>
+    Jeremy Blake <br>
+    -Copy. <br>
+    mp3 <br>
+    Joel Varghese <br>
+
+   <div class="p-right-play-now-text flex">
+    <span>Play Now</span> </div>
+
+    <div class="p-right-play-now-icon">
+        <i class="fa-solid fa-play"></i>  </div>
+
+
+</div>       <!-- Closing tag of class "play-music musicalborder m1 items-center gap flex"-->
+
+
+<div class = "play-music musicalborder m1 items-center gap flex">  <!-- I REPEAT AGAIN, MARGIN IS NEEDED FOR BORDER & -->
+
+
+    <i class="fa-solid fa-music"></i>
+    Final Girl- <br>
+    Jeremy Blake <br>
+    -Copy. <br>
+    mp3 <br>
+    Joel Varghese <br>
+
+   <div class="p-right-play-now-text flex">
+    <span>Play Now</span> </div>
+
+    <div class="p-right-play-now-icon">
+        <i class="fa-solid fa-play"></i>  </div>
+
+
+</div>       <!-- Closing tag of class "play-music musicalborder m1 items-center gap flex"-->
+
+
+
+
+<footer> <!-- Footer Section-->
+    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
+    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
+    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+    </div>
+    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
+    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
+    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+</footer>
+
+</div> <!-- Closing tag of class "library bg-grey rounded m1 p1"-->
+
+
+</div> <!-- Closing tag of class "left"-->
+
+
+
+
+<div class="right bg-grey rounded "> <!-- We have NOT called "p1 & m1" since we're styling our own padding & margin (Avoid overlapping)-->
+
+    <header>                               <!-- header section-->
+        <div class="nav"> 
+            <i class="fa-solid fa-chevron-left"></i>
+            <i class="fa-solid fa-chevron-right"></i> </div>
+
+
+        <div class="buttons">
+            <button class="signupbtn">Sign Up</button>
+            <button class="loginbtn">Log in</button>
+        </div>
+    </header>
+
+
+
+    
+
+<div class="spotify-playlists">
+    <h1>Spotify Playlists</h1>
+    <div class="card-container">
+        <div class="card greyish-border">
+        <div class="card-logo1"> 
+        <div class="play-button">
+            <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+        </div> <!-- Closing tag of "card-logo"-->
+            <div class="card-text"> 
+            <h2> Happy Hits!</h2>
+            <p>Hits to boost your mood and fill you with happiness</p>  </div>
+            </div> <!-- Closing tag of "card"-->
+       
+
+
+<!-- NOw JUST KEEP REPEATING DIV CLASS (card greyish-border) DEPENDING UPON HOW MANY CARDS U WANT TO DISPLAY BY JUST CREATING 
+ NEW CLASS like card-logo2 & 3 & SO ON & UPDATING THE BG-IMG URL IN CSS + HTML & ALSO DON'T FORGET TO KEEP CHANGING THE 
+                                                    DESCRIPTION HERE IN HTML..!!!!!!!!-->
+
+
+
+ <div class="card greyish-border">
+ <div class="card-logo2"> 
+  <div class="play-button">
+ <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+ </div> <!-- Closing tag of "card-logo"-->
+   <div class="card-text"> 
+     <h2> Chill Mood!</h2>
+     <p>Unwind with a calming and soothing vibe</p>  </div>
+        </div> <!-- Closing tag of "card greyish-border"-->
+                                        
+
+
+
+<div class="card greyish-border">
+<div class="card-logo3"> 
+ <div class="play-button">
+  <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+</div> <!-- Closing tag of "card-logo"-->
+ <div class="card-text"> 
+  <h2>Placid Music!</h2>
+  <p>Enjoy a tranquil and serene atmosphere</p>  </div>
+   </div> <!-- Closing tag of "card greyish-border"-->
+           
+
+
+                            
+ <div class="card greyish-border">
+ <div class="card-logo4"> 
+  <div class="play-button">
+ <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+ </div> <!-- Closing tag of "card-logo"-->
+   <div class="card-text"> 
+     <h2>Sad Mood!</h2>
+   <p>Experience feelings of sorrow and reflection</p>  </div>
+</div> <!-- Closing tag of "card greyish-border"-->
+           
+     
+<div class="card greyish-border">
+ <div class="card-logo5"> 
+     <div class="play-button">
+   <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+</div> <!-- Closing tag of "card-logo"-->
+ <div class="card-text"> 
+ <h2>Nature Songs</h2>
+  <p>Soothing sounds inspired by the natural world</p>  </div>
+ </div> <!-- Closing tag of "card greyish-border"-->
+
+
+<div class="card greyish-border">
+<div class="card-logo6"> 
+<div class="play-button">
+  <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+   </div> <!-- Closing tag of "card-logo"-->
+        <div class="card-text"> 
+    <h2>Uplifting Mood!</h2>
+    <p> Inspires positivity & joy</p>  </div>
+</div> <!-- Closing tag of "card greyish-border"-->
+                           
+                   
+ <div class="card greyish-border">
+ <div class="card-logo7"> 
+<div class="play-button">
+    <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+   </div> <!-- Closing tag of "card-logo"-->
+<div class="card-text"> 
+ <h2>Best Car Music!</h2>
+   <p> Enhances the driving experience with energetic beats</p>  </div>
+</div> <!-- Closing tag of "card greyish-border"-->
+
+
+                                                    
+                                           
+<div class="card greyish-border">
+<div class="card-logo8"> 
+        <div class="play-button">
+<i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+ </div> <!-- Closing tag of "card-logo"-->
+<div class="card-text"> 
+ <h2>Funky Mood!</h2>
+<p> Upbeat rhythms and groovy melodies that inspire fun and creativity.</p>  </div>
+</div> <!-- Closing tag of "card greyish-border"-->
+
+
+
+<div class="card greyish-border">
+    <div class="card-logo9"> 
+            <div class="play-button">
+    <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+     </div> <!-- Closing tag of "card-logo"-->
+    <div class="card-text"> 
+     <h2>Party Mood!</h2>
+    <p> Upbeat rhythms and catchy tunes that energize and inspire celebration</p>  </div>
+    </div> <!-- Closing tag of "card greyish-border"-->
+
+
+
+    <div class="card greyish-border">
+        <div class="card-logo10"> 
+                <div class="play-button">
+        <i class="fa-solid fa-play"></i> </div> <!-- Closing tag of "play-button"-->
+         </div> <!-- Closing tag of "card-logo"-->
+        <div class="card-text"> 
+         <h2>Nostalgic Jazz!</h2>
+        <p> Experience a sense of longing and reflection through classic, soulful melodies</p>  </div>
+        </div> <!-- Closing tag of "card greyish-border"-->
+        
+
+
+
+                
+
+
+
+
+
+
+
+    </div><!-- Closing tag of class "card-container"-->
+
+
+    <div class="playbar">
+        <div class="playbar-content">
+            <!-- Add your playback controls and track info here -->
+            <span class="track-info">Track Title - Artist</span>
+            <div class="controls">
+                <button class="control-btn"><i class="fa-solid fa-backward-step"></i></button> <!-- Backward-step icon-->
+                <button class="control-btn"><i class="fa-solid fa-play"></i>            <!-- Play icon-->   </button>
+                <button class="control-btn"><i class="fa-solid fa-forward-step"></i>    <!-- forward-step icon-->
+                </button>
+            </div>   <!-- Closing tag of class "controls"-->
+        </div>         <!-- Closing tag of class "playbar-content"-->
+    </div>            <!-- Closing tag of class "playbar"-->
+   
+        
+       
+
+    
+
+
+</div> <!-- Closing tag of class "spotify-playlists"-->
+
+
+
+</div> <!-- Closing tag of class "right"-->
+<script src="Spotify.js"></script>
+</body>
+</html>

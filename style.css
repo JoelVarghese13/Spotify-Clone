@@ -1,0 +1,420 @@
+/* Be very careful while closing <div> tags of respective classes at APPROPRIATE PLACES only...!!!!!!   */
+
+/* WHENEVER, WE CREATE A NEW DIV, THAT BOX IS FORMED BELOW SO BY "display:flex", WE CAN CREATE BOXES (UNDER THE SAME CLASS) CLOSE TO 
+EACH OTHER HORIZONTALLY since flex-box is created in horizontal direction..!!!   */
+
+/* cursor: pointer; ---> Makes the button look clickable */
+
+/* IN HTML, TRY TO AVOID OVERLAPPING 
+
+<div class="right bg-grey rounded ">         <!-- We have NOT called/accessed the classes "p1 & m1" since we're styling our own 
+                                                      padding & margin (Avoid overlapping)-->
+
+
+
+/* In CSS, while calling out/accessing the elements 
+
+" " --> Same as tag name for accessing a tag like "footer"
+. --> class
+# --> id 
+
+
+/*                                    MOST IMPORTANT DIFFERNCE
+
+
+1) background-size: cover; --> means woh bg image will fit into that particular div class as per its original width * height only. 
+So u have to set the div accordingly before pasting its URL inside the class
+
+
+2) background-size: contain; --> if u mention width * height same (Like width: 100px; height: 100px; ) then the img will fit perfectly
+regardless of its original width * height                                                                                     */
+
+
+
+
+/* <footer> (By default, aligns contents at the end of web-page) ka alternative is 
+
+position: relative //Parent ancestor --> Declare this in parent div-class (flex-box)
+
+//Declare the below ones in child div-class
+
+position: absolute;
+bottom: 0;
+
+
+/* Note: Unlike Amazon Clone, this Clone is mostly made by guess work & not inspecting coz this Output(Spotify) is of older 
+                                              unavailable version          */
+
+
+
+
+
+
+
+/* Understand these 3 pts, don't worry, mostly padding & gap are used..!
+
+1) Use margin --> add margin to the elements inside the div to create space between them. margin is the space outside the elements.
+
+2) Use padding --> if you want to create space inside the elements, between the content and the element’s border.
+
+3) Use gap --> gap is used to space out items in a grid or flex container, making it easier to control the spacing between multiple 
+items without manually adding "margin" to each one.
+
+When it comes to providing space between items within a container, using gap is often more convenient and cleaner than using margin
+
+Not Applicable Everywhere: gap only works with grid and flexbox layouts, so for traditional block or inline layouts, you would still
+ need to use margin or padding. --> LIMITATION OF "gap"
+
+
+
+
+
+
+
+
+/* PADDING IS USED TO PROVIDE SPACE BETWEEN CONTENTS --> BTW ICON-TEXTS & TEXTS-TEXTS    */
+
+
+/*.footer a{          //  You have to use "ClassName + a" to change the color of anchor tags..Without a, the color won't change..!!! 
+    color: #B3B3B3;
+}                      */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+/* I REPEAT AGAIN..!!!!
+
+1) MARGIN IS NEEDED FOR BORDER (MARGIN + BORDER = VISIBILITY OF BORDER)
+2) FLEX(DISPLAY:FLEX) + GAP = VISIBILITY OF GAP BETWEEN ICON AND TEXT-CONTENT (BELONGING TO THE SAME CLASS) 
+
+3) In CSS, these 4 attributes are necessary to display a saved image (under the same folder) ---> for icons (from the linked website),
+no such specific attribute is needed
+
+
+i)background-image + background-size ---> proper alignment 
+ii)height + width ---> Necessary for display of img              
+
+4) Refer to ".card" in utility.css file to learn something new which is somewhat imp
+
+5) Refer to ".playbar" & ".song-buttons" in this css file below to learn something which is very imp..!!!!
+
+6) margin: 0 10px;
+
+
+
+The margin: 0 10px; shorthand property in CSS is used to set the margin space around an element. 
+
+
+0: This value sets the top and bottom margins to 0.
+10px: This value sets the left and right margins to 10px.
+
+7)                     MENTION THE FORMAT CORRECTLY LIKE .jpeg or .jpg WHILE SETTING UP THE background-image  //    
+
+
+
+8) Before starting to construct the website, u need to divide them into sections (apart from header & footer), with the help of " vw "
+unit
+
+For eg,   left = 25vw;     //Left section will take 25% of the entire webpage
+          right = 75vw;    //Right section will take 75% of the entire webpage               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Difference btw poisition: absolute & position: relative..!!!
+
+
+1) Adjusting Position: If you want to slightly move an element without affecting the layout of other elements,
+you need position: relative;.
+
+2) Using position: absolute; gives you precise control over the placement of an element but requires careful management of layout and 
+responsiveness to avoid issues with overlapping content and layout changes.
+
+
+/* Since "Play Now"(For eg) was displaying on 2 diff lines, uska div(box) width increase kar diya so that it gets enough
+    space to appear in 1 same line 
+
+    BUT
+i) You can purposely show Play & Now on seperate lines by using <br>
+ii) display: inline (useful for multiple paragraphs to be shown on same horizonal line --> Only if necessary width is available)
+  */
+
+
+
+
+
+/* Apply box-sizing to all elements */
+ *{
+    box-sizing: border-box;      /* IMP  */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* Ensure the body covers the full viewport height */
+    position: relative; /* Position relative for absolute children positioning */
+}
+
+
+.house-text{
+    width:120px;
+}
+
+
+
+.house-text:hover{
+    border: 2px solid white;
+    margin: 1 px;
+}
+
+
+.search-text{
+    width:120px;
+}
+
+.search-text:hover{
+    border: 2px solid white;
+    margin: 1 px;
+}
+
+
+.playbar {
+    position: absolute; /* Use absolute positioning */
+    bottom: 0; /* Position at the bottom */
+    left: 0;
+    right: 0;
+    height: 60px; /* Set the height of the playbar */
+    background-color: black;  /*Spotify-like black background */
+    color: white; /* Text color */
+    display: flex;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.playbar-content {
+    background-color: #2d2c2c;
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Optional max-width for large screens */
+    align-items: center;
+}
+
+.track-info {
+    font-size: 18px;
+    width:300px;
+    justify-content: space-evenly;
+
+}
+
+
+
+.controls {
+    padding-left: 160px;
+    display: flex;                    /* VERY IMP AS SAID EARLIER,    DISPLAY:FLEX + GAP --> VISIBILITY OF GAP  */
+   gap: 45px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;   
+    font-size: 18px;
+    margin: 0 10px;   
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: x-large;
+}
+
+.control-btn:hover {
+    color: #1db954; /* Spotify-like green color on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.bg-grey{
+    background-color: #121212;
+}
+
+.home{
+    padding: 8px * 12px; /* This is after inspecting */
+
+}
+
+
+.rounded{
+    border-radius: 7px;;
+}
+
+
+.left{
+     
+    width: 25vw;  /* vw is based on the viewport's width, while % is based on the parent element's dimensions. (Difference btw using % 
+                                          and vw)
+
+
+                     vw is based on the viewport's width (regardless of parent's container) , 
+                     while % is based on the parent element's dimensions. */
+   
+}
+
+.right{
+    width: 75vw;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    position: relative;  /* Check ".playbar" below */
+}
+
+
+.logo i{
+    font-size: 2.0rem;
+}
+.logo{
+    font-size: 1.8rem ;
+    margin-left: 1.4%;
+
+}
+
+
+.house-search{
+    margin-top: 5% ;
+    margin-left: 5%;
+}
+
+.house-text{
+    font-size: 1.1rem;
+}
+
+
+
+.search-text{
+    margin-top: 7% ;
+    font-size: 1.1rem;
+}
+
+footer{
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;  /* Even if u don't use this over here, it won't create any diff but in future if needed, I can easily change
+    the position like "top, bottom, right, left", etc....  */
+     
+}
+
+footer a{             /* You have to use "ClassName + a" to change the color of anchor tags..Without a, the color won't change..!!! */
+    color: #B3B3B3;
+}
+
+header{
+    display: flex;
+    justify-content: space-between; /* <> & Sign up, Login are on the opposite ends now..!!! (You can't change their positions now)  */
+    background-color: rgb(34,34,34);
+    height: 65px;
+    align-items: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    
+    
+}
+
+.nav{
+    cursor:pointer;
+}
+
+.spotify-playlists{
+    padding-left: 12px;
+}
+
+.signupbtn{
+    background-color: rgb(34 34 34);  /* Keeping it as same as the header bg color  */
+    color: rgb(156 148 148);   /* After inspecting the text color */
+    font-weight: bold;   /* Makes the text bold  */
+    border: none;
+    outline:none;    /* No border & outline */
+    cursor: pointer;  /* Appear like a clickable button when cursor is placed  */
+    font-size: 16px;   /* Default font-size is 16px  */
+    height: 48px;    /* After inspecting  */
+    width: 95px;
+}
+
+.signupbtn:hover{   /* These changes will take place once hovered  */
+
+font-size: 17px; /* When u compare from above, font size will increase by 1 px  */
+color: white;  /* text color will become fully whitish  */
+font-weight: bolder;          /* text color will become bolder  */
+}
+
+.loginbtn{
+    background-color: white;
+    border-radius: 21px;
+    color:black;
+    font-weight: bold;
+    width:108px;     /* After inspecting  */
+    height: 48px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginbtn:hover{
+    font-weight: bold;
+    width: 110px;
+    font-size: 17px;
+}
+
+
+.playbar{         /* As mentioned earlier, this acts like <footer> (We hv mentioned position:relative; in parent class - 
+                                                               ".right" on top) */ 
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(139 193 139);
+    width:100%;
+     display:flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.song-buttons{
+    display:flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/*                                                NOTE THIS                                                      */
+
+/* You need to mention display:flex; justify-content:center; in both Parent Class (.playbar) & Child Class (.song-buttons) for
+visibility of gap declared in Child Class (gap: 20px)   
+
+This somewhat similar thing was done in Amazon Clone (.navlogo --> Parent & .logo --> Child)       */
