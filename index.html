@@ -172,6 +172,9 @@ Search  </div>
 
 
         <div class="buttons">
+            <button id="themeToggle" class="theme-toggle-btn" title="Toggle theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
             <button class="signupbtn">Sign Up</button>
             <button class="loginbtn">Log in</button>
         </div>
@@ -320,20 +323,6 @@ Search  </div>
 
 
     </div><!-- Closing tag of class "card-container"-->
-
-
-    <div class="playbar">
-        <div class="playbar-content">
-            <!-- Add your playback controls and track info here -->
-            <span class="track-info">Track Title - Artist</span>
-            <div class="controls">
-                <button class="control-btn"><i class="fa-solid fa-backward-step"></i></button> <!-- Backward-step icon-->
-                <button class="control-btn"><i class="fa-solid fa-play"></i>            <!-- Play icon-->   </button>
-                <button class="control-btn"><i class="fa-solid fa-forward-step"></i>    <!-- forward-step icon-->
-                </button>
-            </div>   <!-- Closing tag of class "controls"-->
-        </div>         <!-- Closing tag of class "playbar-content"-->
-    </div>            <!-- Closing tag of class "playbar"-->
    
         
        
@@ -346,6 +335,51 @@ Search  </div>
 
 
 </div> <!-- Closing tag of class "right"-->
+
+<!-- Authentication Modal -->
+<div id="authModal" class="auth-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Welcome to Spotify Clone</h2>
+        
+        <div class="modal-tabs">
+            <button id="loginTab" class="modal-tab active">Login</button>
+            <button id="signupTab" class="modal-tab">Sign Up</button>
+        </div>
+        
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form" style="display: flex;">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Log In</button>
+        </form>
+        
+        <!-- Sign Up Form -->
+        <form id="signupForm" class="auth-form" style="display: none;">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" placeholder="Create a password (min 6 chars)" required>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
 <script src="Spotify.js"></script>
 </body>
 </html>
