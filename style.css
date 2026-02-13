@@ -1,69 +1,654 @@
-/* Be very careful while closing <div> tags of respective classes at APPROPRIATE PLACES only...!!!!!!   */
+/* Global styles & Body */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* WHENEVER, WE CREATE A NEW DIV, THAT BOX IS FORMED BELOW SO BY "display:flex", WE CAN CREATE BOXES (UNDER THE SAME CLASS) CLOSE TO 
-EACH OTHER HORIZONTALLY since flex-box is created in horizontal direction..!!!   */
+body {
+    background-color: #0a0a0a;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-/* cursor: pointer; ---> Makes the button look clickable */
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
 
-/* IN HTML, TRY TO AVOID OVERLAPPING 
+::-webkit-scrollbar-track {
+    background: #121212;
+}
 
-<div class="right bg-grey rounded ">         <!-- We have NOT called/accessed the classes "p1 & m1" since we're styling our own 
-                                                      padding & margin (Avoid overlapping)-->
+::-webkit-scrollbar-thumb {
+    background: #282828;
+    border-radius: 6px;
+}
 
+::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+}
 
+body.light-theme ::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
 
-/* In CSS, while calling out/accessing the elements 
+body.light-theme ::-webkit-scrollbar-thumb {
+    background: #d0d0d0;
+}
 
-" " --> Same as tag name for accessing a tag like "footer"
-. --> class
-# --> id 
+/* Layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
 
+.left {
+    width: 25vw;
+    background-color: #0f0f0f;
+    border-right: 1px solid #282828;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 90px;
+}
 
-/*                                    MOST IMPORTANT DIFFERNCE
+body.light-theme .left {
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+}
 
+.right {
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 100px;
+}
 
-1) background-size: cover; --> means woh bg image will fit into that particular div class as per its original width * height only. 
-So u have to set the div accordingly before pasting its URL inside the class
+body.light-theme .right {
+    background-color: #f5f5f5;
+}
 
+/* FEATURE 4: INTERACTIVE NAVIGATION */
+.house-text, .search-text {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 120px;
+    font-size: 1.1rem;
+}
 
-2) background-size: contain; --> if u mention width * height same (Like width: 100px; height: 100px; ) then the img will fit perfectly
-regardless of its original width * height                                                                                     */
+.house-text:hover, .search-text:hover {
+    background-color: #282828;
+    border: 2px solid #1db954;
+    margin: 1px;
+    transform: translateX(5px);
+}
 
+body.light-theme .house-text:hover, 
+body.light-theme .search-text:hover {
+    background-color: #e0e0e0;
+    border: 2px solid #1db954;
+}
 
+/* Active navigation state - FEATURE 4 */
+.active-nav {
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+    color: white;
+    border: 2px solid #1db954;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.6);
+    transform: scale(1.05);
+}
 
+.active-nav i {
+    color: white;
+    animation: pulse-icon 1.5s ease-in-out infinite;
+}
 
-/* <footer> (By default, aligns contents at the end of web-page) ka alternative is 
+@keyframes pulse-icon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
 
-position: relative //Parent ancestor --> Declare this in parent div-class (flex-box)
+/* FEATURE 1 & 3: TOAST NOTIFICATION */
+.toast-notification {
+    position: fixed;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%) translateY(200px);
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    transition: all 0.4s ease;
+    text-align: center;
+    border: 2px solid #1ed760;
+    white-space: pre-wrap;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
 
-//Declare the below ones in child div-class
+.toast-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
-position: absolute;
-bottom: 0;
+.toast-message {
+    flex: 1;
+    line-height: 1.4;
+}
 
+.toast-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    margin-left: 15px;
+    transition: transform 0.2s;
+}
 
-/* Note: Unlike Amazon Clone, this Clone is mostly made by guess work & not inspecting coz this Output(Spotify) is of older 
-                                              unavailable version          */
+.toast-close:hover {
+    transform: scale(1.3);
+}
 
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    animation: toast-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
+.toast-notification:not(.show) {
+    opacity: 0;
+    pointer-events: none;
+}
 
+@keyframes toast-bounce {
+    0% { transform: translateX(-50%) translateY(200px) scale(0.8); }
+    50% { transform: translateX(-50%) translateY(-10px) scale(1.05); }
+    100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
 
+/* FEATURE 3: THEME TOGGLE BUTTON */
+.theme-toggle-btn {
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+    border: 2px solid #1ed760;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+}
 
+.theme-toggle-btn:hover {
+    background: linear-gradient(135deg, #1ed760 0%, #1db954 100%);
+    color: white;
+    transform: scale(1.15) rotate(20deg);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.7);
+}
 
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
 
-/* Understand these 3 pts, don't worry, mostly padding & gap are used..!
+/* FEATURE 2: AUTHENTICATION MODAL */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
 
-1) Use margin --> add margin to the elements inside the div to create space between them. margin is the space outside the elements.
+.auth-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
 
-2) Use padding --> if you want to create space inside the elements, between the content and the element’s border.
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
 
-3) Use gap --> gap is used to space out items in a grid or flex container, making it easier to control the spacing between multiple 
-items without manually adding "margin" to each one.
+.modal-content {
+    position: relative;
+    z-index: 20001;
+    background: #121212;
+    border-radius: 12px;
+    padding: 50px 40px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+    border: 2px solid #1db954;
+    animation: modal-slide-up 0.4s ease;
+}
 
-When it comes to providing space between items within a container, using gap is often more convenient and cleaner than using margin
+body.light-theme .modal-content {
+    background: #ffffff;
+}
 
-Not Applicable Everywhere: gap only works with grid and flexbox layouts, so for traditional block or inline layouts, you would still
- need to use margin or padding. --> LIMITATION OF "gap"
+@keyframes modal-slide-up {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.light-theme .modal-close {
+    color: #191414;
+}
+
+.modal-close:hover {
+    color: #1db954;
+    transform: scale(1.2) rotate(90deg);
+}
+
+.modal-content h2 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 28px;
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+body.light-theme .modal-content h2 {
+    color: #1db954;
+    -webkit-text-fill-color: #1db954;
+}
+
+/* Form Styles for FEATURE 2 */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #b3b3b3;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.light-theme .form-group label {
+    color: #565656;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 1px solid #282828;
+    background: #282828;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+body.light-theme .form-group input {
+    background: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    color: #191414;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1db954;
+    box-shadow: 0 0 8px rgba(29, 185, 84, 0.4);
+    background: #353535;
+}
+
+body.light-theme .form-group input:focus {
+    background: #ffffff;
+    border-color: #1db954;
+}
+
+.form-group input::placeholder {
+    color: #666;
+}
+
+body.light-theme .form-group input::placeholder {
+    color: #999;
+}
+
+.auth-form button {
+    padding: 12px;
+    background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.auth-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
+}
+
+.auth-form button:active {
+    transform: translateY(0);
+}
+
+.modal-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #282828;
+}
+
+body.light-theme .modal-tabs {
+    border-bottom-color: #d0d0d0;
+}
+
+.modal-tab {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+body.light-theme .modal-tab {
+    color: #888;
+}
+
+.modal-tab.active {
+    color: #1db954;
+    border-bottom-color: #1db954;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 70px;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 25vw;
+    z-index: 500;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.light-theme header {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+}
+
+.nav i {
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.nav i:hover {
+    color: #1db954;
+}
+
+body.light-theme .nav i {
+    color: #191414;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Buttons */
+.signupbtn, .loginbtn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    height: 48px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.signupbtn {
+    background-color: rgba(50, 50, 50, 0.7);
+    color: #b3b3b3;
+    padding: 0 25px;
+}
+
+body.light-theme .signupbtn {
+    background-color: rgba(200, 200, 200, 0.5);
+    color: #565656;
+}
+
+.signupbtn:hover {
+    color: white;
+    background-color: #282828;
+    transform: scale(1.05);
+}
+
+body.light-theme .signupbtn:hover {
+    background-color: #d0d0d0;
+    color: #191414;
+}
+
+.loginbtn {
+    background-color: white;
+    color: black;
+    padding: 0 30px;
+}
+
+body.light-theme .loginbtn {
+    background-color: #1db954;
+    color: white;
+}
+
+.loginbtn:hover {
+    background-color: #1ed760;
+    color: black;
+    transform: scale(1.05);
+}
+
+body.light-theme .loginbtn:hover {
+    background-color: #1ed760;
+}
+
+/* Main Content */
+.spotify-playlists {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    min-height: calc(100vh - 100px);
+}
+
+.spotify-playlists h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: white;
+    font-weight: 900;
+}
+
+body.light-theme .spotify-playlists h1 {
+    color: #191414;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+footer a {
+    color: #B3B3B3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.light-theme footer a {
+    color: #666;
+}
+
+footer a:hover {
+    color: #1db954;
+}
+
+/* Library Section */
+.library {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+body.light-theme .library {
+    background-color: #f5f5f5;
+}
+
+.Library {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+body.light-theme .Library {
+    color: #191414;
+}
+
+/* Home & Cards */
+.bg-grey {
+    background-color: #181818;
+    border-radius: 8px;
+    margin: 12px;
+    padding: 15px;
+}
+
+body.light-theme .bg-grey {
+    background-color: #e8e8e8;
+}
+
+.home {
+    padding: 15px;
+}
+
+.rounded {
+    border-radius: 7px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    margin-left: 1.4%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.light-theme .logo {
+    color: #191414;
+}
+
+.logo i {
+    font-size: 2.0rem;
+    color: #1db954;
+}
+
+.house-search {
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.light-theme .house-search {
+    color: #191414;
+}
 
 
 
@@ -203,26 +788,6 @@ body {
     margin: 1 px;
 }
 
-
-.playbar {
-    position: absolute; /* Use absolute positioning */
-    bottom: 0; /* Position at the bottom */
-    left: 0;
-    right: 0;
-    height: 60px; /* Set the height of the playbar */
-    background-color: black;  /*Spotify-like black background */
-    color: white; /* Text color */
-    display: flex;
-    padding: 0 20px; /* Add some horizontal padding */
-}
-
-.playbar-content {
-    background-color: #2d2c2c;
-    display: flex;
-    width: 100%;
-    max-width: 1200px; /* Optional max-width for large screens */
-    align-items: center;
-}
 
 .track-info {
     font-size: 18px;
