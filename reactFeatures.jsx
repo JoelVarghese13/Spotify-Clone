@@ -1,77 +1,45 @@
-const { useState, useEffect } = React;
+// App Controller - Vanilla JS implementation of React features
+(function() {
+  // Theme management with localStorage
+  const theme = localStorage.getItem('rf-theme') || 'dark';
+  document.body.classList.toggle('light-theme', theme === 'light');
 
-function AppController(){
-  const [theme, setTheme] = useState(() => localStorage.getItem('rf-theme') || 'dark');
-  const [activeNav, setActiveNav] = useState('Home');
-  const [username, setUsername] = useState(() => localStorage.getItem('rf-username') || '');
-  const [visits, setVisits] = useState(0);
-
-  // Apply theme to body on mount and when theme changes
-  useEffect(() => {
-    document.body.classList.toggle('light-theme', theme === 'light');
-    localStorage.setItem('rf-theme', theme);
-  }, [theme]);
-
-  // Initialize theme on mount
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('rf-theme') || 'dark';
-    document.body.classList.toggle('light-theme', savedTheme === 'light');
-  }, []);
-
-  // Track visits
-  useEffect(() => {
-    const v = parseInt(localStorage.getItem('rf-visits') || '0', 10) + 1;
-    localStorage.setItem('rf-visits', v);
-    setVisits(v);
-  }, []);
-
-  // Setup theme toggle button
-  useEffect(() => {
-    const themeBtn = document.getElementById('themeToggle');
-    if(!themeBtn) return;
-    const handleThemeClick = (e) => {
+  // Theme toggle
+  const themeBtn = document.getElementById('themeToggle');
+  if(themeBtn) {
+    themeBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      setTheme(t => t === 'dark' ? 'light' : 'dark');
+      const newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
+      document.body.classList.toggle('light-theme', newTheme === 'light');
+      localStorage.setItem('rf-theme', newTheme);
+    });
+  }
+
+  // Nav active state
+  const houseText = document.querySelector('.house-text');
+  const searchText = document.querySelector('.search-text');
+  
+  if(houseText && searchText) {
+    const updateNav = (activeElem) => {
+      houseText.classList.toggle('active-nav', activeElem === houseText);
+      searchText.classList.toggle('active-nav', activeElem === searchText);
     };
-    themeBtn.addEventListener('click', handleThemeClick);
-    return () => themeBtn.removeEventListener('click', handleThemeClick);
-  }, []);
+    
+    houseText.addEventListener('click', () => updateNav(houseText));
+    searchText.addEventListener('click', () => updateNav(searchText));
+    
+    // Set Home as initial active
+    updateNav(houseText);
+  }
 
-  // Setup nav active state
-  useEffect(() => {
-    const houseText = document.querySelector('.house-text');
-    const searchText = document.querySelector('.search-text');
-    
-    if(houseText && searchText){
-      const updateNav = (nav) => {
-        houseText.classList.toggle('active-nav', nav === 'Home');
-        searchText.classList.toggle('active-nav', nav === 'Search');
-        setActiveNav(nav);
-      };
-      
-      houseText.addEventListener('click', () => updateNav('Home'));
-      searchText.addEventListener('click', () => updateNav('Search'));
-      
-      // Set initial active state
-      updateNav('Home');
-      
-      return () => {
-        houseText.removeEventListener('click', () => updateNav('Home'));
-        searchText.removeEventListener('click', () => updateNav('Search'));
-      };
-    }
-  }, []);
-
-  // Setup auth modal
-  useEffect(() => {
-    const modal = document.getElementById('authModal');
-    const signupBtn = document.querySelector('.signupbtn');
-    const loginBtn = document.querySelector('.loginbtn');
-    const modalClose = document.querySelector('.modal-close');
-    const overlay = document.querySelector('.modal-overlay');
-    
-    if(!modal || !signupBtn || !loginBtn) return;
-    
+  // Auth modal
+  const modal = document.getElementById('authModal');
+  const signupBtn = document.querySelector('.signupbtn');
+  const loginBtn = document.querySelector('.loginbtn');
+  const modalClose = document.querySelector('.modal-close');
+  const overlay = document.querySelector('.modal-overlay');
+  
+  if(modal && signupBtn && loginBtn) {
     const openModal = (e) => {
       e.preventDefault();
       modal.classList.add('active');
@@ -86,18 +54,9 @@ function AppController(){
     loginBtn.addEventListener('click', openModal);
     if(modalClose) modalClose.addEventListener('click', closeModal);
     if(overlay) overlay.addEventListener('click', closeModal);
-    
-    return () => {
-      signupBtn.removeEventListener('click', openModal);
-      loginBtn.removeEventListener('click', openModal);
-      if(modalClose) modalClose.removeEventListener('click', closeModal);
-      if(overlay) overlay.removeEventListener('click', closeModal);
-    };
-  }, []);
+  }
 
-  return null; // This component manages existing UI, no visual output
-}
-
-const root = ReactDOM.createRoot(document.getElementById('react-controller-root'));
-root.render(<AppController />);
-
+  // Visit counter with localStorage
+  const visits = parseInt(localStorage.getItem('rf-visits') || '0', 10) + 1;
+  localStorage.setItem('rf-visits', visits);
+})();
