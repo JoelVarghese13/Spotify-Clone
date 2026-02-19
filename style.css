@@ -674,6 +674,45 @@ body.light-theme .play-button {
     box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 0 18px rgba(29,185,84,0.10);
 }
 
+/* Light-theme footer */
+body.light-theme .site-footer {
+    background: linear-gradient(180deg, #f5f5f5, #eeeeee);
+    color: #333333;
+    border-top: 1px solid #d0d0d0;
+}
+body.light-theme .site-footer .footer-col h5 {
+    color: #191414;
+}
+body.light-theme .site-footer .footer-col ul li a {
+    color: #666666;
+}
+body.light-theme .site-footer .footer-col ul li a:hover {
+    color: #1db954;
+}
+body.light-theme .site-footer .socials a {
+    color: #666666;
+}
+body.light-theme .site-footer .socials a:hover {
+    color: #1db954;
+}
+body.light-theme .site-footer-bottom {
+    border-top: 1px solid #d0d0d0;
+}
+body.light-theme .site-footer-bottom .legal-links a {
+    color: #666666;
+}
+body.light-theme .site-footer-bottom .copyright {
+    color: #999999;
+}
+body.light-theme .lang-btn {
+    border: 1px solid #d0d0d0;
+    color: #666666;
+}
+body.light-theme .lang-btn:hover {
+    border-color: #1db954;
+    color: #1db954;
+}
+
 /* Library Section */
 .library {
     flex: 1;
