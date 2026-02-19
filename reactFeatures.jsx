@@ -6,11 +6,17 @@ function AppController(){
   const [username, setUsername] = useState(() => localStorage.getItem('rf-username') || '');
   const [visits, setVisits] = useState(0);
 
-  // Apply theme to body
+  // Apply theme to body on mount and when theme changes
   useEffect(() => {
     document.body.classList.toggle('light-theme', theme === 'light');
     localStorage.setItem('rf-theme', theme);
   }, [theme]);
+
+  // Initialize theme on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('rf-theme') || 'dark';
+    document.body.classList.toggle('light-theme', savedTheme === 'light');
+  }, []);
 
   // Track visits
   useEffect(() => {
@@ -92,6 +98,6 @@ function AppController(){
   return null; // This component manages existing UI, no visual output
 }
 
-const root = ReactDOM.createRoot(document.body);
+const root = ReactDOM.createRoot(document.getElementById('react-controller-root'));
 root.render(<AppController />);
 

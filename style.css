@@ -890,15 +890,6 @@ ii) display: inline (useful for multiple paragraphs to be shown on same horizona
     padding: 0;
 }
 
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    min-height: 100vh; /* Ensure the body covers the full viewport height */
-    position: relative; /* Position relative for absolute children positioning */
-}
-
-
 .house-text{
     width:120px;
 }
