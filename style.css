@@ -581,6 +581,99 @@ footer a:hover {
     color: #1db954;
 }
 
+/* Site footer styles (Spotify-like) */
+.site-footer {
+    background: linear-gradient(180deg, #0a0a0a, #0b0b0b);
+    color: #bfbfbf;
+    border-top: 1px solid #1f1f1f;
+}
+.site-footer { width: calc(100% - 240px); margin-left: 240px; }
+.site-footer-inner {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 28px auto 8px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+.footer-col h5 { color:#fff; margin:0 0 10px 0; font-size:14px; }
+.footer-col ul { list-style:none; padding:0; margin:0; }
+.footer-col ul li { margin:8px 0; }
+.footer-col ul li a { color:#bfbfbf; text-decoration:none; font-size:14px; }
+.footer-action { display:flex; flex-direction:column; gap:12px; align-items:flex-end; }
+.socials a { color:#bfbfbf; margin-left:8px; font-size:18px; }
+.lang-btn { background:transparent; border:1px solid #2a2a2a; color:#bfbfbf; padding:8px 12px; border-radius:20px; cursor:pointer; }
+.site-footer-bottom { display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:12px auto 28px auto; padding:0 20px; border-top:1px solid #161616; padding-top:14px; }
+.site-footer-bottom .legal-links a { margin-right:14px; color:#9e9e9e; text-decoration:none; font-size:13px; }
+.site-footer-bottom .copyright { color:#8f8f8f; font-size:13px; }
+
+/* Layout overrides to ensure left sidebar and right content behave correctly */
+.container { display:flex; min-height:100vh; }
+.left { width:240px; min-width:240px; height:100vh; overflow:hidden; display:flex; flex-direction:column; }
+.library { flex:1 1 auto; overflow-y:auto; max-height: calc(100vh - 70px - 120px); }
+.right { flex:1 1 auto; display:flex; flex-direction:column; height:100vh; overflow-y:auto; padding-bottom: 260px; }
+header { left:240px; }
+.site-footer { width:100%; margin-left:0; position:relative; box-shadow: 0 -8px 40px rgba(0,0,0,0.6); }
+.spotify-playlists { padding-top: 90px; }
+
+/* Ensure no horizontal scroll */
+html, body { overflow-x: hidden; }
+
+@media (max-width: 800px) {
+    .left { display:none; }
+    header { left:0; }
+    .right { width:100%; }
+}
+
+/* Left compact footer */
+.left-footer { margin: 12px; color:#bfbfbf; font-size:13px; display:flex; flex-direction:column; gap:8px; }
+.left-footer-links a { color:#bfbfbf; text-decoration:none; }
+.left-footer-copy { color:#8f8f8f; font-size:12px; }
+
+@media (max-width: 900px) {
+    .site-footer-inner { grid-template-columns: repeat(2, 1fr); }
+    .footer-action { align-items:flex-start; }
+    .site-footer-bottom { flex-direction:column; gap:12px; align-items:flex-start; }
+}
+
+/* Light-theme card overrides to avoid dark backgrounds and white text */
+body.light-theme .greyish-border {
+    background-color: #ffffff;
+    border: 1px solid #0a0a0a;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+body.light-theme .greyish-border:hover {
+    border-color: #1db954;
+    box-shadow: 0 12px 40px rgba(29,185,84,0.08), 0 6px 20px rgba(0,0,0,0.08);
+}
+body.light-theme .card-text h2,
+body.light-theme .card-text p {
+    color: #191414;
+}
+body.light-theme .card {
+    background: transparent;
+}
+
+/* Library item adjustments in light theme */
+body.light-theme .musicalborder {
+    background: #ffffff;
+    border: 1px solid #0a0a0a;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    color: #191414;
+}
+body.light-theme .musicalborder .p-right-play-now-text,
+body.light-theme .musicalborder span,
+body.light-theme .musicalborder i {
+    color: #191414;
+}
+
+/* Play button light-theme tweaks */
+body.light-theme .play-button {
+    border: 2px solid rgba(0,0,0,0.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12), 0 0 18px rgba(29,185,84,0.10);
+}
+
 /* Library Section */
 .library {
     flex: 1;

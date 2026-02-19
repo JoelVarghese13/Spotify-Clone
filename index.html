@@ -145,14 +145,11 @@ Search  </div>
 
 
 
-<footer> <!-- Footer Section-->
-    <div><a href="https://www.spotify.com/jp/legal/"><span>Legal</span></a></div>
-    <div><a href="https://www.spotify.com/jp/privacy/"><span>Privacy Center</span></a></div>
-    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/"><span>Privacy Policy</span></a>
+<footer class="left-footer"> <!-- Compact left column footer -->
+    <div class="left-footer-links">
+        <a href="#">Cookies</a>
     </div>
-    <div><a href="https://www.spotify.com/jp/legal/cookies-policy/"><span>Cookies</span></a></div>
-    <div><a href="https://www.spotify.com/jp/legal/privacy-policy/#s3"><span>About Ads</span></a></div>
-    <div><a href="https://www.spotify.com/jp/accessibility/"><span>Accessibility</span></a></div>
+    <div class="left-footer-copy">© 2026 Spotify AB</div>
 </footer>
 
 </div> <!-- Closing tag of class "library bg-grey rounded m1 p1"-->
@@ -186,6 +183,8 @@ Search  </div>
 
 <div class="spotify-playlists">
     <h1>Spotify Playlists</h1>
+    <!-- React mount point: small interactive panel (React features implemented in reactFeatures.jsx) -->
+    <div id="react-root" style="margin:18px 0;"></div>
     <div class="card-container">
         <div class="card greyish-border">
         <div class="card-logo1"> 
@@ -335,6 +334,69 @@ Search  </div>
 
 
 </div> <!-- Closing tag of class "right"-->
+</div> <!-- Closing tag of class "right"-->
+
+    <!-- Site footer (inside right column) -->
+    <div class="right-footer-wrap">
+        <footer class="site-footer">
+            <div class="site-footer-inner">
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">For the Record</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Communities</h5>
+                    <ul>
+                        <li><a href="#">For Artists</a></li>
+                        <li><a href="#">Developers</a></li>
+                        <li><a href="#">Advertising</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Useful links</h5>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Free Mobile App</a></li>
+                        <li><a href="#">Import your music</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Spotify Plans</h5>
+                    <ul>
+                        <li><a href="#">Premium Lite</a></li>
+                        <li><a href="#">Premium Standard</a></li>
+                        <li><a href="#">Premium Student</a></li>
+                    </ul>
+                </div>
+                <div class="footer-action">
+                    <div class="socials">
+                        <a href="#" aria-label="instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" aria-label="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                    <div class="lang">
+                        <button class="lang-btn"><i class="fa-solid fa-globe"></i> English</button>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer-bottom">
+                <div class="legal-links">
+                    <a href="#">Legal</a>
+                    <a href="#">Privacy Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookies</a>
+                    <a href="#">About Ads</a>
+                    <a href="#">Accessibility</a>
+                </div>
+                <div class="copyright">© 2026 Spotify AB</div>
+            </div>
+        </footer>
+    </div>
+</div> <!-- Closing tag of class "container" -->
 
 <!-- Authentication Modal -->
 <div id="authModal" class="auth-modal">
@@ -381,5 +443,10 @@ Search  </div>
 </div>
 
 <script src="Spotify.js"></script>
+    <!-- React (development UMD) + Babel for in-browser JSX (small demo features) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="reactFeatures.jsx"></script>
 </body>
 </html>
